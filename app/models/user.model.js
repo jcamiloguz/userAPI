@@ -4,6 +4,7 @@ const sql = require("./db.js");
 const User = function(user) {
   this.firstName = user.firstName;
   this.lastName = user.lastName;
+  this.userName = user.userName;
   this.email = user.email;
   this.active = user.active;
 };
@@ -55,7 +56,7 @@ User.getAll = result => {
 User.updateById = (id, user, result) => {
   sql.query(
     "UPDATE users SET email = ?, firstName = ?, lastName = ?, active = ? WHERE id = ?",
-    [user.email, user.firstName,user.lastName, user.active, id],
+    [user.email, user.firstName,user.lastName,user.userName, user.active, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
