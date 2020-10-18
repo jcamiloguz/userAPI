@@ -10,6 +10,7 @@ const User = function(user) {
 };
 
 User.create = (newUser, result) => {
+	console.log(newUser);
   sql.query("INSERT INTO users SET ?", newUser, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -23,7 +24,7 @@ User.create = (newUser, result) => {
 };
 
 User.findById = (userId, result) => {
-  sql.query(`SELECT * FROM users WHERE id = ${userId}`, (err, res) => {
+  sql.query(`SELECT * FROM users WHERE idUser = ${userId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -55,7 +56,7 @@ User.getAll = result => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE users SET email = ?, firstName = ?, lastName = ?, active = ? WHERE id = ?",
+    "UPDATE users SET email = ?, firstName = ?, lastName = ?, userName =?, active = ? WHERE idUser = ?",
     [user.email, user.firstName,user.lastName,user.userName, user.active, id],
     (err, res) => {
       if (err) {
@@ -76,7 +77,7 @@ User.updateById = (id, user, result) => {
 };
 
 User.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM users WHERE idUser = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
