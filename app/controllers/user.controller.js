@@ -11,9 +11,9 @@ exports.create = (req, res) => {
 
   // Create a User
   const user = new User({
-    name: req.body.firstName,
-    name: req.body.lastName,
-    name: req.body.userName,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: req.body.userName,
     email: req.body.email,
     active: req.body.active
   });
