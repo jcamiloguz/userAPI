@@ -1,5 +1,6 @@
 module.exports = app => {
   const users = require("../controllers/user.controller.js");
+  const roles = require("../controllers/role.controller.js");
 
   // Create a new user
   app.post("/users", users.create);
@@ -16,6 +17,24 @@ module.exports = app => {
   // Delete a user with userId
   app.delete("/users/:userId", users.delete);
 
-  // Create a new user
-  app.delete("/users", users.deleteAll);
+  // delete all users
+	app.delete("/users", users.deleteAll);
+	
+  // Create a new role
+  app.post("/roles", roles.create);
+
+  // Retrieve all roles
+  app.get("/roles", roles.findAll);
+
+  // Retrieve a single role with roleId
+  app.get("/roles/:roleId", roles.findOne);
+
+  // Update a role with roleId
+  app.put("/roles/:roleId", roles.update);
+
+  // Delete a role with roleId
+  app.delete("/roles/:roleId", roles.delete);
+
+  // delete all roles
+  app.delete("/roles", roles.deleteAll);
 };
