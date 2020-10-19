@@ -30,7 +30,7 @@ userRole.findByUserId = (userId, result) => {
 
     if (res.length) {
       console.log("found a relation(s): ", res[0]);
-      result(null, res[0]);
+      result(null, res);
       return;
     }
 
