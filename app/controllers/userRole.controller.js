@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 
 // Find a single role with a roleId
 exports.findByUserId = (req, res) => {
-  Role.findByUserId(req.params.userId, (err, data) => {
+  UserRoleM.findByUserId(req.params.userId, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -46,7 +46,7 @@ exports.findByUserId = (req, res) => {
 
 // Find a single role with a roleId
 exports.findByRoleId = (req, res) => {
-  Role.findByRoleId(req.params.roleId, (err, data) => {
+  UserRoleM.findByRoleId(req.params.roleId, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
