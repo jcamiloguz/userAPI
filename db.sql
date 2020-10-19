@@ -7,6 +7,7 @@ CREATE TABLE  users (
   email varchar(255) NOT NULL,
   active BOOLEAN DEFAULT false
 ) ;
+ALTER TABLE users ADD userName varchar(40) NOT NULL;
 
 CREATE TABLE  users_role (
   idUser_Role int NOT NULL PRIMARY KEY AUTO_INCREMENT,
