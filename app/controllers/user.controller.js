@@ -101,7 +101,7 @@ exports.delete = (req, res) => {
           message: "Could not delete User with id " + req.params.userId
         });
       }
-    } else res.send({ message: `User was deleted successfully!` });
+    } else res.send({ message: `User was deleted successfully!  ${data}` });
   });
 };
 
